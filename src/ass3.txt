@@ -1,0 +1,74 @@
+
+public class Account {
+private int accno;
+private String name;
+private int bal=5000;
+
+public int deposit(int amount)
+{
+	return bal+amount;
+}
+
+public int withdraw(int amount)
+{
+	return bal-amount;
+}
+
+}
+
+
+
+
+
+
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Test;
+
+public class withdraw {
+	@Test
+	public void test() {
+		Account acc=new Account();
+		int result=acc.withdraw(200);
+		assertEquals(result,4800);
+	
+	}
+
+}
+
+
+
+
+
+
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class deposit {
+
+	@Test
+	public void test() {
+		Account acc=new Account();
+		int result=acc.deposit(200);
+		assertEquals(result,5200);
+	}
+
+}
+
+
+
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
+
+@RunWith(Suite.class)
+@SuiteClasses({ deposit.class, withdraw.class })
+
+public class AllTests {
+
+}
